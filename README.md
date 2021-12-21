@@ -5,10 +5,10 @@
 <br/><br/>
 
 
-#Practica creativa 2:
-#Despliegue de una aplicación escalable
+# Practica creativa 2:
+# Despliegue de una aplicación escalable
 
-##Objetivo
+## Objetivos
 
 Creación de un escenario completo de despliegue de una aplicación fiable y escalable que integre los diversos contenidos impartidos en la asignatura. Para ello se usarán múltiples tecnologías. Esta práctica está orientada a afianzar los conocimientos adquiridos a lo largo de la asignatura con respecto a los temas relacionados, con el despliegue de aplicaciones en la nube y aplicaciones basadas en microservicios utilizando Docker y Kubernetes. Para ello, se definen una serie de tareas a realizar definidas en cuatro grandes bloques.
 
@@ -17,7 +17,7 @@ Creación de un escenario completo de despliegue de una aplicación fiable y esc
 - Segmentación de una aplicación monolítica en microservicios utilizando docker-compose.
 - Despliegue de una aplicación basada en microservicios utilizando Kubernetes. 
 
-Descripción
+## Descripción
 
 La aplicación que se va a desplegar en esta práctica ya ha sido desarrollada y está disponible en el siguiente repositorio de git: <https://github.com/CDPS-ETSIT/practica_creativa2.git>
 
@@ -51,7 +51,7 @@ Una descripción gráfica de cómo está compuesta la aplicación es la siguient
 
 ![Diagrama aplicacion monolitica](./images/app-monolith.png)
 
-##Despliegue de una aplicación monolítica usando docker (2 puntos).
+## Despliegue de una aplicación monolítica usando docker (2 puntos).
 
 Una vez que ya se ha ejecutado la aplicación y se puede acceder a ella, se pide que despliegue la misma aplicación, pero en este caso usando docker. Se utilizará un único fichero Dockerfile que desplegaremos bien en local (siguiendo la nomenclatura que se indica) o bien usando docker-hub para el registro de imágenes. Al final tendremos una solución similar a la del apartado anterior, pero usando tecnología de virtualización ligera. 
 
@@ -67,7 +67,7 @@ Arrancar el contenedor con el nombre siguiendo el siguiente formato `<numero_de_
 
 El contenedor puede ejecutarse en una instalación local de docker en vuestro ordenador, en los ordenadores del laboratorio, en una máquina virtual de google cloud, o en el servicio de play-with-docker (recordar que en este último se reinicia la máquina cada 4 horas). 
 
-##Segmentación de una aplicación monolítica en microservicios utilizando docker-compose ( 2 puntos)
+## Segmentación de una aplicación monolítica en microservicios utilizando docker-compose ( 2 puntos)
 
 Como se comentó anteriormente, la aplicación de esta práctica consta de dos servicios desarrollados en Python. Sin embargo, para su puesta en ejecución, se utilizó un único contenedor. En esta parte de la práctica se va a utilizar un enfoque orientado a microservicios. Para ello, se va a segmentar la aplicación, separando cada servicio para que funcione de forma independiente. 
 Además, se van a añadir dos servicios más: **Reviews** y **Ratings**. La siguiente figura ilustra cómo se compone la aplicación en microservicios.
@@ -125,7 +125,7 @@ Al construir el fichero docker-compose, añadir la variable de entorno `ENABLE_R
 
 Incluya en la memoria de la práctica las diferencias con la versión de un único contenedor. 
 
-##Despliegue de una aplicación basada en microservicios utilizando Kubernetes (4 puntos, opcional) 
+## Despliegue de una aplicación basada en microservicios utilizando Kubernetes (4 puntos, opcional) 
 
 Llegados a este punto y con todas las imágenes de docker creadas, es hora de realizar el despliegue de la aplicación utilizando Kubernetes. Recordad que puede utilizarse Kubernetes en un ordenador personal, utilizando minikube, o bien usando play-with-kubernetes (recordando que cada hora se reinicializa la máquina virtual)
 
@@ -146,7 +146,7 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 - Desplegar usando [Helm Charts](<https://helm.sh> )  toda la infraestructura de la práctica.
 
 
-##Entrega
+## Entrega
 
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
