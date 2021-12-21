@@ -36,9 +36,9 @@ Para ello deberá programar un script en lenguaje Python que sea capaz de realiz
 - Instalación de la aplicación en una máquina virtual pesada alojada en la infraestructura de google cloud.
 - Instalación de la aplicación en los servidores s1 a s3 de la práctica creativa 1. 
 
-En el directorio `bookinfo/src/productpage` se encuentra el código de una aplicación que muestra la información sobre libros escrita en Python. Esta aplicación se ejecuta llamando al fichero `productpage\_monolith.py`y especificando el puerto en el que queremos que la aplicación reciba las peticiones (**puerto 9080**).  Previamente se deben instalar, usando pip, las dependencias especificadas en el fichero `requirements.txt`.
+En el directorio `bookinfo/src/productpage` se encuentra el código de una aplicación que muestra la información sobre libros escrita en Python. Esta aplicación se ejecuta llamando al fichero `productpage_monolith.py`y especificando el puerto en el que queremos que la aplicación reciba las peticiones (**puerto 9080**).  Previamente se deben instalar, usando pip, las dependencias especificadas en el fichero `requirements.txt`.
 
-- Se pide inspeccionar el código de la aplicación para que en el título aparezca el nombre del grupo que está realizando la práctica. Este valor deberá obtenerse por medio de la variable de entorno `<GROUP\_NUMBER>`. También deberá arrancar la aplicación en un puerto diferente al predeterminado.
+- Se pide inspeccionar el código de la aplicación para que en el título aparezca el nombre del grupo que está realizando la práctica. Este valor deberá obtenerse por medio de la variable de entorno `<GROUP_NUMBER>`. También deberá arrancar la aplicación en un puerto diferente al predeterminado.
 
 - Se requiere que la aplicación sea accesible desde el exterior por medio de la IP pública que tenga asignada la VM, por ejemplo:
 `http://<ip-publica>:<puerto>/productpage`
@@ -61,7 +61,7 @@ Para esta parte es necesario:
 - Crear la imagen de docker usando el siguiente formato: 
 `<numero_de_grupo>/<product-page> `
 
-- Pasar la variable de entorno `<GROUP\_NUMBER>` al contenedor para que se muestre en el título de la página el número del grupo.
+- Pasar la variable de entorno `<GROUP_NUMBER>` al contenedor para que se muestre en el título de la página el número del grupo.
 
 Arrancar el contenedor con el nombre siguiendo el siguiente formato `<numero_de_grupo>-<nombre_del_servicio>` y que la web sea accesible desde el exterior.
 
