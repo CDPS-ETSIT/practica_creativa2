@@ -107,7 +107,7 @@ Consideraciones especiales para la definición de los ficheros `Dockerfile` de c
 
 
 - **Reviews**: 
-  - Compilar y empaquetar los ficheros necesarios ejecutando, dentro de la ruta `src/reviews/reviews-wlpcfg`, el siguiente comando: 
+  - Compilar y empaquetar los ficheros necesarios ejecutando, dentro de la ruta `src/reviews`, el siguiente comando: 
     ```
     docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /home/gradle/project gradle:4.8.1 gradle clean build
     ```
