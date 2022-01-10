@@ -33,10 +33,10 @@ En esta parte, se utilizarán las técnicas más tradicionales, que consisten en
 
 Para ello deberá programar un script en lenguaje Python que sea capaz de realizar una de las siguientes instalaciones: 
 
-- Instalación de la aplicación en una máquina virtual pesada alojada en la infraestructura de google cloud.
-- Instalación de la aplicación en los servidores s1 a s3 de la práctica creativa 1. 
+- Instalación de la aplicación en una máquina virtual pesada alojada en la infraestructura de google cloud (no tiene que automatizarse la creación de la máquina virtual).
+- Instalación de la aplicación en los servidores s1 a s3 de la práctica creativa 1 (alternativamente usar una máquina virtual fuera del escenario como las de las primeras prácticas). 
 
-En el directorio `bookinfo/src/productpage` se encuentra el código de una aplicación que muestra la información sobre libros escrita en Python. Esta aplicación se ejecuta llamando al fichero `productpage_monolith.py`y especificando el puerto en el que queremos que la aplicación reciba las peticiones (**puerto 9080**).  Previamente se deben instalar, usando pip, las dependencias especificadas en el fichero `requirements.txt`.
+En el directorio `bookinfo/src/productpage` se encuentra el código de una aplicación que muestra la información sobre libros escrita en Python3. Esta aplicación se ejecuta llamando al fichero `productpage_monolith.py`y especificando el puerto en el que queremos que la aplicación reciba las peticiones (**puerto 9080**).  Previamente se deben instalar, usando pip3, las dependencias especificadas en el fichero `requirements.txt`.
 
 - Se pide inspeccionar el código de la aplicación para que en el título aparezca el nombre del grupo que está realizando la práctica. Este valor deberá obtenerse por medio de la variable de entorno `<GROUP_NUMBER>`. También deberá arrancar la aplicación en un puerto diferente al predeterminado.
 
@@ -51,6 +51,8 @@ Una descripción gráfica de cómo está compuesta la aplicación es la siguient
 
 ![Diagrama aplicacion monolitica](./images/app-monolith.png)
 
+**Nota:** Al menos uno de los scripts debe de realizar la instalación dentro de la máquina virtual. 
+
 ## Despliegue de una aplicación monolítica usando docker (2 puntos).
 
 Una vez que ya se ha ejecutado la aplicación y se puede acceder a ella, se pide que despliegue la misma aplicación, pero en este caso usando docker. Se utilizará un único fichero Dockerfile que desplegaremos bien en local (siguiendo la nomenclatura que se indica) o bien usando docker-hub para el registro de imágenes. Al final tendremos una solución similar a la del apartado anterior, pero usando tecnología de virtualización ligera. 
@@ -59,13 +61,20 @@ Para esta parte es necesario:
 
 - Definir el fichero `Dockerfile` para ejecutar la aplicación web en el puerto `9080`
 - Crear la imagen de docker usando el siguiente formato: 
-`<numero_de_grupo>/<product-page> `
+`<numero_de_grupo>/product-page ` donde `product-page` es el nombre del servicio por lo que no es necesario cambiarlo a diferencia de `<numero_de_grupo>`
 
-- Pasar la variable de entorno `<GROUP_NUMBER>` al contenedor para que se muestre en el título de la página el número del grupo.
+- Pasar la variable de entorno `<GROUP_NUMBER>` al contenedor para que se muestre en el título de la página (en la etiquéta “title” de la página html servida) el número del grupo.
 
 Arrancar el contenedor con el nombre siguiendo el siguiente formato `<numero_de_grupo>-<nombre_del_servicio>` y que la web sea accesible desde el exterior.
 
 El contenedor puede ejecutarse en una instalación local de docker en vuestro ordenador, en los ordenadores del laboratorio, en una máquina virtual de google cloud, o en el servicio de play-with-docker (recordar que en este último se reinicia la máquina cada 4 horas). 
+
+En ejemplo del comando a ejecutar sería el siguiente:
+
+```
+docker run --name g45-product-page -p 9080:9080 -e GROUP_NUMBER=45 -d g45/product-page
+```
+
 
 ## Segmentación de una aplicación monolítica en microservicios utilizando docker-compose ( 2 puntos)
 
@@ -103,9 +112,6 @@ Consideraciones especiales para la definición de los ficheros `Dockerfile` de c
   - Exponer el puerto **9080** 
   - Ejecutar el fichero `details.rb` usando la instrucción ruby y añadir el puerto ex: `[“ruby”,”fichero”,”puerto”]`
 
-
-
-
 - **Reviews**: 
   - Compilar y empaquetar los ficheros necesarios ejecutando, dentro de la ruta `src/reviews`, el siguiente comando: 
     ```
@@ -122,6 +128,7 @@ Al construir el fichero docker-compose, añadir la variable de entorno `ENABLE_R
   - Instalar las dependencias
   - Exponer el puerto **9080** 
   - Ejecutar el fichero `ratings.js`, usando la instrucción node y añadir el puerto ex: `[“node”,”ratings.js”,”puerto”]`
+
 
 Incluya en la memoria de la práctica las diferencias con la versión de un único contenedor. 
 
