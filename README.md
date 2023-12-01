@@ -132,7 +132,7 @@ Al construir el fichero docker-compose, añadir la variable de entorno `ENABLE_R
 
 Incluya en la memoria de la práctica las diferencias con la versión de un único contenedor. 
 
-## Despliegue de una aplicación basada en microservicios utilizando Kubernetes (4 puntos, opcional) 
+## Despliegue de una aplicación basada en microservicios utilizando Kubernetes (4 puntos) 
 
 Llegados a este punto y con todas las imágenes de docker creadas, es hora de realizar el despliegue de la aplicación utilizando Kubernetes. Recordad que puede utilizarse Kubernetes en un ordenador personal, utilizando minikube, o bien usando play-with-kubernetes (recordando que cada hora se reinicializa la máquina virtual)
 
