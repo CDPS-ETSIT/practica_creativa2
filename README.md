@@ -38,7 +38,7 @@ Para ello deberá programar un script en lenguaje Python que sea capaz de realiz
 
 En el directorio `bookinfo/src/productpage` se encuentra el código de una aplicación que muestra la información sobre libros escrita en Python3. Esta aplicación se ejecuta llamando al fichero `productpage_monolith.py`y especificando el puerto en el que queremos que la aplicación reciba las peticiones (**puerto 9080**).  Previamente se deben instalar, usando pip3, las dependencias especificadas en el fichero `requirements.txt`.
 
-- Se pide inspeccionar el código de la aplicación para que en el título aparezca el nombre del grupo que está realizando la práctica. Este valor deberá obtenerse por medio de la variable de entorno `<GROUP_NUMBER>`. También deberá arrancar la aplicación en un puerto diferente al predeterminado.
+- Se pide inspeccionar el código de la aplicación para que en el título aparezca el nombre del grupo que está realizando la práctica. Este valor deberá obtenerse por medio de la variable de entorno `<GROUPO_NUMERO>`. También deberá arrancar la aplicación en un puerto diferente al predeterminado.
 
 - Se requiere que la aplicación sea accesible desde el exterior por medio de la IP pública que tenga asignada la VM, por ejemplo:
 `http://<ip-publica>:<puerto>/productpage`
@@ -63,7 +63,7 @@ Para esta parte es necesario:
 - Crear la imagen de docker usando el siguiente formato: 
 `<numero_de_grupo>/product-page ` donde `product-page` es el nombre del servicio por lo que no es necesario cambiarlo a diferencia de `<numero_de_grupo>`
 
-- Pasar la variable de entorno `<GROUP_NUMBER>` al contenedor para que se muestre en el título de la página (en la etiquéta “title” de la página html servida) el número del grupo.
+- Pasar la variable de entorno `<GROUPO_NUMERO>` al contenedor para que se muestre en el título de la página (en la etiquéta “title” de la página html servida) el número del grupo.
 
 Arrancar el contenedor con el nombre siguiendo el siguiente formato `<numero_de_grupo>-<nombre_del_servicio>` y que la web sea accesible desde el exterior.
 
@@ -72,7 +72,7 @@ El contenedor puede ejecutarse en una instalación local de docker en vuestro or
 En ejemplo del comando a ejecutar sería el siguiente:
 
 ```
-docker run --name g45-product-page -p 9080:9080 -e GROUP_NUMBER=45 -d g45/product-page
+docker run --name g45-product-page -p 9080:9080 -e GROUPO_NUMERO=45 -d g45/product-page
 ```
 
 
