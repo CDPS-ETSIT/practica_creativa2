@@ -38,7 +38,7 @@ Para ello deberá programar un script en lenguaje Python que sea capaz de realiz
 
 En el directorio `bookinfo/src/productpage` se encuentra el código de una aplicación que muestra la información sobre libros escrita en Python3. Esta aplicación se ejecuta llamando al fichero `productpage_monolith.py`y especificando el puerto en el que queremos que la aplicación reciba las peticiones (**puerto 9080**).  Previamente se deben instalar, usando pip3, las dependencias especificadas en el fichero `requirements.txt`.
 
-- Se pide inspeccionar el código de la aplicación para que en el título aparezca el nombre del grupo que está realizando la práctica. Este valor deberá obtenerse por medio de la variable de entorno `<GROUPO_NUMERO>`. También deberá arrancar la aplicación en un puerto diferente al predeterminado.
+- Se pide inspeccionar el código de la aplicación para que en el título aparezca el nombre del grupo que está realizando la práctica. Este valor deberá obtenerse por medio de la variable de entorno `<GRUPO_NUMERO>`. También deberá arrancar la aplicación en un puerto diferente al predeterminado.
 
 - Se requiere que la aplicación sea accesible desde el exterior por medio de la IP pública que tenga asignada la VM, por ejemplo:
 `http://<ip-publica>:<puerto>/productpage`
