@@ -158,37 +158,3 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
-
-**Apéndice 1:** Escenario virtual para realizar la práctica
-
-**Apéndice 2:** Configuración de servicios
-
-**Apéndice 3:** Instalación opcional usando **Docker** y **Docker-Compose**
-
-Para la ejecución de este escenario podemos usar:
-
-- Un ordenador personal utilizando una instalación de Docker (Windows, OSX, Linux).
-- Una imagen que contenga **Docker** y **Docker-Compose** instalado.
-
-Vamos a replicar el escenario usando contenedores dockers. Pera ello definiremos una serie de contenedores que son los que vamos a utilizar para la creación de nuestro escenario.  Dichos contenedores serían:
-
-- Cortafuegos (**firewal**l)
-- Balanceador de tráfico (**loadbalancer**)
-- Servidores de Aplicaciones (**webapp**) 
-- Base de datos (**MariaDB**)
-- Servidores de almacenamiento (**storage**). Nota: se proporciona una receta detallada de cómo arrancar dichos servidores [(enlace)](<https://www.1and1.com/cloud-community/learn/containers/docker/using-gluster-for-a-distributed-docker-storage-volume/>).
-
-Para ello definiremos una serie directorios con los nombres de cada una de las imágenes de ficheros `Dockerfile` con la creación de las imágenes de cada uno de los contenedores. 
-
-Se creará un fichero de configuración para `Docker-Compose` que arranque el escenario completo (una vez construidas cada una de las imágenes de los contenedores necesarios anteriormente descritos).
-
-Para ello crearemos cuatros subredes y procederemos a su interconexión, tal como se muestra en la Figura 1.
-
-
-
-
-
-
-
-
-
