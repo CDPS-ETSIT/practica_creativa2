@@ -75,6 +75,7 @@ En ejemplo del comando a ejecutar sería el siguiente:
 docker run --name g45-product-page -p 9080:9080 -e GROUPO_NUMERO=45 -d g45/product-page
 ```
 
+Podeis usar de imagen base `python:3.7.7-slim` 
 
 ## Segmentación de una aplicación monolítica en microservicios utilizando docker-compose ( 2 puntos)
 
