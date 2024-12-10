@@ -61,11 +61,11 @@ Para esta parte es necesario:
 
 - Definir el fichero `Dockerfile` para ejecutar la aplicación web en el puerto `5060`
 - Crear la imagen de docker usando el siguiente formato: 
-`<numero_de_grupo>/product-page ` donde `product-page` es el nombre del servicio por lo que no es necesario cambiarlo a diferencia de `<numero_de_grupo>`
+`product-page/<numero_de_grupo>` donde `product-page` es el nombre del servicio por lo que no es necesario cambiarlo a diferencia de `<numero_de_grupo>`
 
 - Pasar la variable de entorno `<GROUP_NUM>` al contenedor para que se muestre en el título de la página (en la etiquéta “title” de la página html servida) el número del grupo.
 
-Arrancar el contenedor con el nombre siguiendo el siguiente formato `<nombre_del_servicio>-<numero_de_grupo>` y que la web sea accesible desde el exterior.
+Arrancar el contenedor con el nombre siguiendo el siguiente formato `<numero_de_grupo>-<nombre_del_servicio>` y que la web sea accesible desde el exterior.
 
 El contenedor puede ejecutarse en una instalación local de docker en vuestro ordenador, en los ordenadores del laboratorio, en una máquina virtual de google cloud, o en el servicio de play-with-docker (recordar que en este último se reinicia la máquina cada 4 horas). 
 
