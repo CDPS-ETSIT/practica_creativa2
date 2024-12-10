@@ -139,7 +139,7 @@ Llegados a este punto y con todas las imágenes de docker creadas, es hora de re
 
 Para esta parte de la práctica será necesario:
 
-- Crear un cluster de Kubernetes en GKE con **5** nodos sin **autoescalado**
+- Crear un cluster de Kubernetes en GKE con **3** nodos sin **autoescalado**
 - Definir archivos de despliegue individuales para cada uno de los microservicios de la aplicación. Es decir, cada microservicio se debe ejecutar en **un pod** y cada pod debe tener únicamente **un contenedor** asociado.
 - Definir como **factor de replicación 3** para el microservicio de **Details** y **factor de replicación 2** para el microservicio de **Ratings**.
 - Definir los services necesarios para que todos los servicios se comuniquen entre sí
