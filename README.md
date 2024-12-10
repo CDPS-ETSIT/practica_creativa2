@@ -65,7 +65,7 @@ Para esta parte es necesario:
 
 - Pasar la variable de entorno `<GROUP_NUM>` al contenedor para que se muestre en el título de la página (en la etiquéta “title” de la página html servida) el número del grupo.
 
-Arrancar el contenedor con el nombre siguiendo el siguiente formato `<numero_de_grupo>-<nombre_del_servicio>` y que la web sea accesible desde el exterior.
+Arrancar el contenedor con el nombre siguiendo el siguiente formato `<nombre_del_servicio>-<numero_de_grupo>` y que la web sea accesible desde el exterior.
 
 El contenedor puede ejecutarse en una instalación local de docker en vuestro ordenador, en los ordenadores del laboratorio, en una máquina virtual de google cloud, o en el servicio de play-with-docker (recordar que en este último se reinicia la máquina cada 4 horas). 
 
