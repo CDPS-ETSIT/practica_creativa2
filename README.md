@@ -36,7 +36,7 @@ Para ello deberá programar un script en lenguaje Python que sea capaz de realiz
 - Instalación de la aplicación en una máquina virtual pesada alojada en la infraestructura de google cloud (no tiene que automatizarse la creación de la máquina virtual).
 - Instalación de la aplicación en los servidores s1 a s3 de la práctica creativa 1 (alternativamente usar una máquina virtual fuera del escenario como las de las primeras prácticas). 
 
-En el directorio `bookinfo/src/productpage` se encuentra el código de una aplicación que muestra la información sobre libros escrita en Python3. Esta aplicación se ejecuta llamando al fichero `productpage_monolith.py`y especificando el puerto en el que queremos que la aplicación reciba las peticiones (**puerto 5060**).  Previamente se deben instalar, usando pip3, las dependencias especificadas en el fichero `requirements.txt`.
+En el directorio `bookinfo/src/productpage` se encuentra el código de una aplicación que muestra la información sobre libros escrita en Python3. Esta aplicación se ejecuta llamando al fichero `productpage_monolith.py`y especificando el puerto en el que queremos que la aplicación reciba las peticiones (**puerto 9080**).  Previamente se deben instalar, usando pip3, las dependencias especificadas en el fichero `requirements.txt`.
 
 - Se pide inspeccionar el código de la aplicación para que en el título de la página aparezca el nombre del grupo que está realizando la práctica. Este valor deberá obtenerse por medio de la variable de entorno `<GRUP_NUM>`. También deberá arrancar la aplicación en un puerto diferente al predeterminado.
 
@@ -59,20 +59,20 @@ Una vez que ya se ha ejecutado la aplicación y se puede acceder a ella, se pide
 
 Para esta parte es necesario:
 
-- Definir el fichero `Dockerfile` para ejecutar la aplicación web en el puerto `9080`
+- Definir el fichero `Dockerfile` para ejecutar la aplicación web en el puerto `5060`
 - Crear la imagen de docker usando el siguiente formato: 
 `<numero_de_grupo>/product-page ` donde `product-page` es el nombre del servicio por lo que no es necesario cambiarlo a diferencia de `<numero_de_grupo>`
 
-- Pasar la variable de entorno `<GROUPO_NUMERO>` al contenedor para que se muestre en el título de la página (en la etiquéta “title” de la página html servida) el número del grupo.
+- Pasar la variable de entorno `<GROUP_NUM>` al contenedor para que se muestre en el título de la página (en la etiquéta “title” de la página html servida) el número del grupo.
 
-Arrancar el contenedor con el nombre siguiendo el siguiente formato `<numero_de_grupo>-<nombre_del_servicio>` y que la web sea accesible desde el exterior.
+Arrancar el contenedor con el nombre siguiendo el siguiente formato `<nombre_del_servicio>-<numero_de_grupo>` y que la web sea accesible desde el exterior.
 
 El contenedor puede ejecutarse en una instalación local de docker en vuestro ordenador, en los ordenadores del laboratorio, en una máquina virtual de google cloud, o en el servicio de play-with-docker (recordar que en este último se reinicia la máquina cada 4 horas). 
 
 En ejemplo del comando a ejecutar sería el siguiente:
 
 ```
-docker run --name g45-product-page -p 9080:9080 -e GROUPO_NUMERO=45 -d g45/product-page
+docker run --name product-page-g45 -p 9080:9080 -e GROUPO_NUMERO=45 -d product-page/g45
 ```
 
 Podeis usar de imagen base `python:3.7.7-slim` 
@@ -97,8 +97,8 @@ Como puede observar en la figura, se va a considerar una aplicación **“políg
 Se pide:
 
 - Definir un fichero Dockerfile para cada uno de los servicios listados anteriormente.
-- Crear las imágenes de cada uno de los servicios de acuerdo al siguiente formato de nombre: `<numero_de_grupo>/<nombre_de_microservicio>` (Incluir la creación de las tres versiones del servicio de reviews. Para especificar la versión se hace uso de la variable de entorno `SERVICE_VERSION` cuyos valores pueden ser **v1**, **v2** o **v3**)
-- Definir un fichero docker-compose para desplegar cada uno de los contenedores cuyas imágenes fueron creadas anteriormente, recordando mantener las variables de entorno correspondientes. El nombre de cada contenedor debe ser definido de acuerdo a la siguiente convención `<numero_de_grupo>-<nombre_del_servicio>`. Se recomienda fuertemente el uso de volúmenes para ejecutar los ficheros de cada uno de los servicios.
+- Crear las imágenes de cada uno de los servicios de acuerdo al siguiente formato de nombre: `<nombre_de_microservicio>/<numero_de_grupo>` (Incluir la creación de las tres versiones del servicio de reviews. Para especificar la versión se hace uso de la variable de entorno `SERVICE_VERSION` cuyos valores pueden ser **v1**, **v2** o **v3**)
+- Definir un fichero docker-compose para desplegar cada uno de los contenedores cuyas imágenes fueron creadas anteriormente, recordando mantener las variables de entorno correspondientes. El nombre de cada contenedor debe ser definido de acuerdo a la siguiente convención `<nombre_del_servicio>-<numero_de_grupo>`. Se recomienda fuertemente el uso de volúmenes para ejecutar los ficheros de cada uno de los servicios.
 - La web debe ser completamente funcional y accesible desde el exterior.
 - Asimismo, la web debe funcionar con las tres versiones del microservicio **review**. Para ello, se harán pruebas con cada una de las versiones de dichos contenedores. Sin embargo, solo una versión puede estar activo y ejecutándose a la vez
 
