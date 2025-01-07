@@ -59,7 +59,7 @@ Una vez que ya se ha ejecutado la aplicación y se puede acceder a ella, se pide
 
 Para esta parte es necesario:
 
-- Definir el fichero `Dockerfile` para ejecutar la aplicación web en el puerto `5060`
+- Definir el fichero `Dockerfile` para ejecutar la aplicación web en el puerto `5080`
 - Crear la imagen de docker usando el siguiente formato: 
 `product-page/<numero_de_grupo>` donde `product-page` es el nombre del servicio por lo que no es necesario cambiarlo a diferencia de `<numero_de_grupo>`
 
