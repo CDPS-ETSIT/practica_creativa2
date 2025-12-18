@@ -142,12 +142,13 @@ Llegados a este punto y con todas las imágenes de docker creadas, es hora de re
 Para esta parte de la práctica será necesario:
 
 - Crear un cluster de Kubernetes en GKE con **3** nodos sin **autoescalado**
+- Crear un namespace con el nombre `cdps-<TEAM_ID>` en donde se deben desplegar cada uno de los microservicios de la aplicación.
 - Definir archivos de despliegue individuales para cada uno de los microservicios de la aplicación. Es decir, cada microservicio se debe ejecutar en **un pod** y cada pod debe tener únicamente **un contenedor** asociado.
-- Definir como **factor de replicación 3** para el microservicio de **Details** y **factor de replicación 2** para el microservicio de **Ratings**.
+- Definir como **factor de replicación 4** para el microservicio de **Details** y **factor de replicación 3** para el microservicio de **Ratings**.
 - Definir los services necesarios para que todos los servicios se comuniquen entre sí
 - Definir un service que permita acceder por medio de una **IP externa** a la aplicación por medio del microservicio **productpage**.
 
-Para las tareas descritas anteriormente, se provee dentro de la carpeta `platform/kube` los ficheros `review-<version>-<tipo>.yaml` y `ratings.yml`, que contienen la declaración tanto de los servicios como de los deployments necesarios para cada una de las versiones del microsevicios de **Reviews** y **Ratings**. Estos ficheros pueden ser usados como ejemplo para desplegar los microservicios restantes.
+Para las tareas descritas anteriormente, se provee dentro de la carpeta `platform/kube` los ficheros `review-<version>-<tipo>.yaml` y `ratings.yml`, que contienen la declaración tanto de los servicios como de los deployments necesarios para cada una de las versiones del microsevicios de **Reviews** y **Ratings**. Estos ficheros pueden ser usados como ejemplo para desplegar los microservicios restantes (recuerdar que estos ficheros no contienen el namespace indicado en el primer punto por lo que debe ser añadido).
 
 Incluya en la memoria de la práctica las diferencias que encuentra al crear los pods, así mismo la diferencia que ve para escalar esta última solución. 
 
@@ -161,5 +162,6 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
 
 
