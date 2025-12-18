@@ -36,9 +36,9 @@ Para ello deberá programar un script en lenguaje Python que sea capaz de realiz
 - Instalación de la aplicación en una máquina virtual pesada alojada en la infraestructura de google cloud (no tiene que automatizarse la creación de la máquina virtual).
 - Instalación de la aplicación en los servidores s1 a s3 de la práctica creativa 1 (alternativamente usar una máquina virtual fuera del escenario como las de las primeras prácticas). 
 
-En el directorio `bookinfo/src/productpage` se encuentra el código de una aplicación que muestra la información sobre libros escrita en Python3. Esta aplicación se ejecuta llamando al fichero `productpage_monolith.py`y especificando el puerto en el que queremos que la aplicación reciba las peticiones (**puerto 9080**).  Previamente se deben instalar, usando pip3, las dependencias especificadas en el fichero `requirements.txt`.
+En el directorio `bookinfo/src/productpage` se encuentra el código de una aplicación que muestra la información sobre libros escrita en Python3. Esta aplicación se ejecuta llamando al fichero `productpage_monolith.py`y especificando el puerto en el que queremos que la aplicación reciba las peticiones (**puerto 9090**).  Previamente se deben instalar, usando pip3, las dependencias especificadas en el fichero `requirements.txt`.
 
-- Se pide inspeccionar el código de la aplicación para que en el título de la página aparezca el nombre del grupo que está realizando la práctica. Este valor deberá obtenerse por medio de la variable de entorno `<GROUP_NUM>`. También deberá arrancar la aplicación en un puerto diferente al predeterminado.
+- Se pide inspeccionar el código de la aplicación para que en el título de la página aparezca el nombre del grupo que está realizando la práctica. Este valor deberá obtenerse por medio de la variable de entorno `<TEAM_ID>`. También deberá arrancar la aplicación en un puerto diferente al predeterminado.
 
 - Se requiere que la aplicación sea accesible desde el exterior por medio de la IP pública que tenga asignada la VM, por ejemplo:
 `http://<ip-publica>:<puerto>/productpage`
@@ -59,23 +59,23 @@ Una vez que ya se ha ejecutado la aplicación y se puede acceder a ella, se pide
 
 Para esta parte es necesario:
 
-- Definir el fichero `Dockerfile` para ejecutar la aplicación web en el puerto `5080`
+- Definir el fichero `Dockerfile` para ejecutar la aplicación web en el puerto `8080` y usando como puerto de acceso al exterior `9095`
 - Crear la imagen de docker usando el siguiente formato: 
-`product-page/<numero_de_grupo>` donde `product-page` es el nombre del servicio por lo que no es necesario cambiarlo a diferencia de `<numero_de_grupo>`
+`cdps-<servicio>:g<TEAM_ID>` donde `<servicio>` es el nombre del servicio por ejemplo(`product-page`) y `<TEAM_ID>` es el número de grupo. Cabe recalcar que `g<TEAM_ID>` se debe asignar como tag de la imagen del contenedor.
 
-- Pasar la variable de entorno `<GROUP_NUM>` al contenedor para que se muestre en el título de la página (en la etiquéta “title” de la página html servida) el número del grupo.
+- Pasar la variable de entorno `<APP_OWNER>` al contenedor para que se muestre en el título de la página (en la etiquéta “title” de la página html servida) el valor que se le asigne a dicha variable (puede usar el apellido del primer integrante del grupo seguido de et al).
 
-Arrancar el contenedor con el nombre siguiendo el siguiente formato `<nombre_del_servicio>-<numero_de_grupo>` y que la web sea accesible desde el exterior.
+Arrancar el contenedor con el nombre siguiendo el siguiente formato `<servicio>_cdps_<TEAM_ID>` y que la web sea accesible desde el exterior.
 
 El contenedor puede ejecutarse en una instalación local de docker en vuestro ordenador, en los ordenadores del laboratorio, en una máquina virtual de google cloud, o en el servicio de play-with-docker (recordar que en este último se reinicia la máquina cada 4 horas). 
 
 En ejemplo del comando a ejecutar sería el siguiente:
 
 ```
-docker run --name product-page-g45 -p 9080:9080 -e GROUP_NUM=45 -d product-page/g45
+docker run --name productpage_cdps_12 -p 9095:8080 -e TEAM_ID=12 -d cdps-product-page:g12
 ```
 
-Podeis usar de imagen base `python:3.7.7-slim` 
+Se debe usar de imagen base `python:3.9-slim` 
 
 ## Segmentación de una aplicación monolítica en microservicios utilizando docker-compose ( 2 puntos)
 
@@ -159,3 +159,4 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
