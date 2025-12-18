@@ -97,8 +97,8 @@ Como puede observar en la figura, se va a considerar una aplicación **“políg
 Se pide:
 
 - Definir un fichero Dockerfile para cada uno de los servicios listados anteriormente.
-- Crear las imágenes de cada uno de los servicios de acuerdo al siguiente formato de nombre: `<nombre_de_microservicio>/<numero_de_grupo>` (Incluir la creación de las tres versiones del servicio de reviews. Para especificar la versión se hace uso de la variable de entorno `SERVICE_VERSION` cuyos valores pueden ser **v1**, **v2** o **v3**)
-- Definir un fichero docker-compose para desplegar cada uno de los contenedores cuyas imágenes fueron creadas anteriormente, recordando mantener las variables de entorno correspondientes. El nombre de cada contenedor debe ser definido de acuerdo a la siguiente convención `<nombre_del_servicio>-<numero_de_grupo>`. Se recomienda fuertemente el uso de volúmenes para ejecutar los ficheros de cada uno de los servicios.
+- Crear las imágenes de cada uno de los servicios de acuerdo al siguiente formato de nombre: `cdps-<servicio>:g<TEAM_ID>` (Incluir la creación de las tres versiones del servicio de reviews. Para especificar la versión se hace uso de la variable de entorno `APP_VERSION` cuyos valores pueden ser **v1**, **v2** o **v3**)
+- Definir un fichero docker-compose para desplegar cada uno de los contenedores cuyas imágenes fueron creadas anteriormente, recordando mantener las variables de entorno correspondientes. El nombre de cada contenedor debe ser definido de acuerdo a la siguiente convención `<servicio>_cdps_<TEAM_ID>`. Se recomienda fuertemente el uso de volúmenes para ejecutar los ficheros de cada uno de los servicios.
 - La web debe ser completamente funcional y accesible desde el exterior.
 - Asimismo, la web debe funcionar con las tres versiones del microservicio **review**. Para ello, se harán pruebas con cada una de las versiones de dichos contenedores. Sin embargo, solo una versión puede estar activo y ejecutándose a la vez
 
@@ -109,7 +109,7 @@ Consideraciones especiales para la definición de los ficheros `Dockerfile` de c
 - **Details**: 
   - Imagen base a utilizar `ruby:2.7.1-slim`
   - Copiar el fichero details.rb en la ruta `/opt/microservices/` dentro del contenedor
-  - Especificar dos variables de entorno: `SERVICE_VERSION` con valor **v1** y `ENABLE_EXTERNAL_BOOK_SERVICE` con valor true
+  - Especificar dos variables de entorno: `APP_VERSION` con valor **v1** y `ENABLE_EXTERNAL_BOOK_SERVICE` con valor true
   - Exponer el puerto **9080** 
   - Ejecutar el fichero `details.rb` usando la instrucción ruby y añadir el puerto ex: `[“ruby”,”fichero”,”puerto”]`
 
@@ -118,17 +118,19 @@ Consideraciones especiales para la definición de los ficheros `Dockerfile` de c
     ```
     docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /home/gradle/project gradle:4.8.1 gradle clean build
     ```
-- Construir la imagen utilizando el fichero Dockerfile alojado en el directorio `src/reviews/reviews-wlpcfg` (Inspeccionar el contenido para asignar bien las rutas y variables de entorno). No olvidar respetar la convención de nombres de los contenedores.
+  - Construir la imagen utilizando el fichero Dockerfile alojado en el directorio `src/reviews/reviews-wlpcfg` (Inspeccionar el contenido para asignar bien las rutas y variables de entorno). No olvidar respetar la convención de nombres de los contenedores.
 
-Al construir el fichero docker-compose, añadir la variable de entorno `ENABLE_RATINGS=true` para que se muestren los ratings.
+Al construir el fichero docker-compose, añadir la variable de entorno `FEATURE_RATINGS=true` para que se muestren los ratings.
 
 - **Ratings**: 
   - Imagen base a utilizar `node:12.18.1-slim`
   - Copiar los ficheros `package.json` y `ratings.js` a la ruta `/opt/microservices/` dentro del contenedor.
-  - Especificar la variable de entorno `SERVICE_VERSION` con valor **v1**
+  - Especificar la variable de entorno `APP_VERSION` con valor **v1**
   - Instalar las dependencias
   - Exponer el puerto **9080** 
   - Ejecutar el fichero `ratings.js`, usando la instrucción node y añadir el puerto ex: `[“node”,”ratings.js”,”puerto”]`
+    
+Adicionalmente el fichero docker-compose debe incluir la definicion de la red con el nombre `cdps-net` y luego se debe asignar la red a cada servicio que se vaya adesplegar.
 
 
 Incluya en la memoria de la práctica las diferencias con la versión de un único contenedor. 
@@ -159,4 +161,5 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
 
