@@ -53,7 +53,7 @@ Una descripción gráfica de cómo está compuesta la aplicación es la siguient
 
 **Nota:** Al menos uno de los scripts debe de realizar la instalación dentro de la máquina virtual. 
 
-## Despliegue de una aplicación monolítica usando docker (2 puntos).
+## 2. Despliegue de una aplicación monolítica usando docker (2 puntos).
 
 Una vez que ya se ha ejecutado la aplicación y se puede acceder a ella, se pide que despliegue la misma aplicación, pero en este caso usando docker. Se utilizará un único fichero Dockerfile que desplegaremos bien en local (siguiendo la nomenclatura que se indica) o bien usando docker-hub para el registro de imágenes. Al final tendremos una solución similar a la del apartado anterior, pero usando tecnología de virtualización ligera. 
 
@@ -77,7 +77,7 @@ docker run --name productpage_cdps_12 -p 9095:8080 -e TEAM_ID=12 APP_OWNER=Perez
 ```
 
 
-## Segmentación de una aplicación monolítica en microservicios utilizando docker-compose ( 2 puntos)
+## 3. Segmentación de una aplicación monolítica en microservicios utilizando docker-compose ( 2 puntos)
 
 Como se comentó anteriormente, la aplicación de esta práctica consta de dos servicios desarrollados en Python. Sin embargo, para su puesta en ejecución, se utilizó un único contenedor. En esta parte de la práctica se va a utilizar un enfoque orientado a microservicios. Para ello, se va a segmentar la aplicación, separando cada servicio para que funcione de forma independiente. 
 Además, se van a añadir dos servicios más: **Reviews** y **Ratings**. La siguiente figura ilustra cómo se compone la aplicación en microservicios.
@@ -136,7 +136,7 @@ Adicionalmente el fichero docker-compose debe incluir la definicion de la red co
 
 Incluya en la memoria de la práctica las diferencias con la versión de un único contenedor. 
 
-## Despliegue de una aplicación basada en microservicios utilizando Kubernetes (4 puntos) 
+## 4. Despliegue de una aplicación basada en microservicios utilizando Kubernetes (4 puntos) 
 
 Llegados a este punto y con todas las imágenes de docker creadas, es hora de realizar el despliegue de la aplicación utilizando Kubernetes. Recordad que puede utilizarse Kubernetes en un ordenador personal, utilizando minikube, o bien usando play-with-kubernetes (recordando que cada hora se reinicializa la máquina virtual)
 
@@ -163,6 +163,7 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
 
 
 
