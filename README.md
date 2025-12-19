@@ -60,6 +60,7 @@ Una vez que ya se ha ejecutado la aplicación y se puede acceder a ella, se pide
 Para esta parte es necesario:
 
 - Definir el fichero `Dockerfile` para ejecutar la aplicación web en el puerto `8080` y usando como puerto de acceso al exterior `9095`
+- Se debe usar de imagen base `python:3.9-slim` 
 - Crear la imagen de docker usando el siguiente formato: 
 `cdps-<servicio>:g<TEAM_ID>` donde `<servicio>` es el nombre del servicio por ejemplo(`product-page`) y `<TEAM_ID>` es el número de grupo. Cabe recalcar que `g<TEAM_ID>` se debe asignar como tag de la imagen del contenedor.
 
@@ -75,7 +76,6 @@ En ejemplo del comando a ejecutar sería el siguiente:
 docker run --name productpage_cdps_12 -p 9095:8080 -e TEAM_ID=12 -d cdps-product-page:g12
 ```
 
-Se debe usar de imagen base `python:3.9-slim` 
 
 ## Segmentación de una aplicación monolítica en microservicios utilizando docker-compose ( 2 puntos)
 
@@ -163,6 +163,7 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
 
 
 
