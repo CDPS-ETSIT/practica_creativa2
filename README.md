@@ -97,7 +97,7 @@ Como puede observar en la figura, se va a considerar una aplicación **“políg
 Se pide:
 
 - Definir un fichero Dockerfile para cada uno de los servicios listados anteriormente.
-- Crear las imágenes de cada uno de los servicios de acuerdo al siguiente formato de nombre: `cdps-<servicio>:g<TEAM_ID>` (Incluir la creación de las tres versiones del servicio de reviews. Para especificar la versión se hace uso de la variable de entorno `APP_VERSION` cuyos valores pueden ser **v1**, **v2** o **v3**)
+- Crear las imágenes de cada uno de los servicios de acuerdo al siguiente formato de nombre: `cdps-<servicio>:g<TEAM_ID>` (Incluir la creación de las tres versiones del servicio de reviews. Para especificar la versión se hace uso de la variable de entorno `SERVICE_VERSION` cuyos valores pueden ser **v1**, **v2** o **v3**)
 - Definir un fichero docker-compose para desplegar cada uno de los contenedores cuyas imágenes fueron creadas anteriormente, recordando mantener las variables de entorno correspondientes. el nombre del fichero debe ser `docker-compose.micro.yml`. El nombre de cada contenedor debe ser definido de acuerdo a la siguiente conve`<servicio>_cdps_<TEAM_ID>`. Se recomienda fuertemente el uso de volúmenes para ejecutar los ficheros de cada uno de los servicios.
 - El fichero docker-compose debe incluir la definicion de la red con el nombre `cdps-net` y luego se debe asignar la red a cada servicio que se vaya adesplegar.
 - La web debe ser completamente funcional y accesible desde el exterior.
@@ -160,6 +160,7 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
 
 
 
