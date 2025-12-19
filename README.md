@@ -120,9 +120,8 @@ Consideraciones especiales para la definición de los ficheros `Dockerfile` de c
     docker run --rm -u root -v "$(pwd)":/home/gradle/project -w /home/gradle/project gradle:4.8.1 gradle clean build
     ```
   - Construir la imagen utilizando el fichero Dockerfile alojado en el directorio `src/reviews/reviews-wlpcfg` (Inspeccionar el contenido para asignar bien las rutas y variables de entorno). No olvidar respetar la convención de nombres de los contenedores.
-  - Exponer el puerto **9080** 
-
-Al construir el fichero docker-compose, añadir la variable de entorno `FEATURE_RATINGS=enabled` para que se muestren los ratings.
+  - Exponer el puerto **9080**
+  - Al construir el fichero docker-compose, añadir la variable de entorno `ENABLED_RATINGS=true` para que se muestren los ratings.
 
 - **Ratings**: 
   - Imagen base a utilizar `node:12.18.1-slim`
@@ -161,6 +160,7 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
 
 
 
