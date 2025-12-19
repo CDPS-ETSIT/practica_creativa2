@@ -64,7 +64,7 @@ Para esta parte es necesario:
 - Crear la imagen de docker usando el siguiente formato: 
 `cdps-<servicio>:g<TEAM_ID>` donde `<servicio>` es el nombre del servicio por ejemplo(`product-page`) y `<TEAM_ID>` es el número de grupo. Cabe recalcar que `g<TEAM_ID>` se debe asignar como tag de la imagen del contenedor.
 
-- Pasar la variable de entorno `<APP_OWNER>` al contenedor para que se muestre en el título de la página (en la etiquéta “title” de la página html servida) el valor que se le asigne a dicha variable (puede usar el apellido del primer integrante del grupo seguido de -et-al).
+- Pasar las variable de entorno `<APP_OWNER>` y `<TEAM_ID>` al contenedor para que se muestren en el título de la página (en la etiquéta “title” de la página html servida) el valor que se le asigne a dichas variable (para APP_OWNER puede usar el apellido del primer integrante del grupo seguido de -et-al).
 
 Arrancar el contenedor con el nombre siguiendo el siguiente formato `<servicio>_cdps_<TEAM_ID>` y que la web sea accesible desde el exterior.
 
@@ -163,6 +163,7 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
 
 
 
