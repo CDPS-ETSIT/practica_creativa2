@@ -110,7 +110,7 @@ Consideraciones especiales para la definición de los ficheros `Dockerfile` de c
 - **Details**: 
   - Imagen base a utilizar `ruby:2.7.1-slim`
   - Copiar el fichero details.rb en la ruta `/opt/microservices/` dentro del contenedor
-  - Especificar dos variables de entorno: `APP_VERSION` con valor **v1** y `ENABLE_EXTERNAL_BOOK_SERVICE` con valor true
+  - Especificar la variable de entorno:  `ENABLE_EXTERNAL_BOOK_SERVICE` con valor `true`
   - Exponer el puerto **7070** 
   - Ejecutar el fichero `details.rb` usando la instrucción ruby y añadir el puerto ex: `[“ruby”,”fichero”,”puerto”]`
 
@@ -124,7 +124,7 @@ Consideraciones especiales para la definición de los ficheros `Dockerfile` de c
   - Al construir el fichero docker-compose, añadir la variable de entorno `ENABLE_RATINGS=true` para que se muestren los ratings.
 
 - **Ratings**: 
-  - Imagen base a utilizar `node:12.18.1-slim`
+  - Imagen base a utilizar `node:24.14-slim`
   - Copiar los ficheros `package.json` y `ratings.js` a la ruta `/opt/microservices/` dentro del contenedor.
   - Especificar la variable de entorno `APP_VERSION` con valor **v1**
   - Instalar las dependencias
@@ -160,6 +160,7 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
 
 
 
