@@ -128,7 +128,7 @@ Consideraciones especiales para la definición de los ficheros `Dockerfile` de c
   - Copiar los ficheros `package.json` y `ratings.js` a la ruta `/opt/microservices/` dentro del contenedor.
   - Especificar la variable de entorno `APP_VERSION` con valor **v1**
   - Instalar las dependencias
-  - Exponer el puerto **6060** 
+  - Exponer el puerto **9080** 
   - Ejecutar el fichero `ratings.js`, usando la instrucción node y añadir el puerto ex: `[“node”,”ratings.js”,”puerto”]`
     
 Incluya en la memoria de la práctica las diferencias con la versión de un único contenedor. 
@@ -160,6 +160,7 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
 
 
 
