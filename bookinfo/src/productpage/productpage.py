@@ -70,7 +70,7 @@ details = {
 }
 
 ratings = {
-    "name": "http://{0}{1}:6060".format(ratingsHostname, servicesDomain),
+    "name": "http://{0}{1}:9080".format(ratingsHostname, servicesDomain),
     "endpoint": "ratings",
     "children": []
 }
