@@ -22,14 +22,14 @@ var userAddedRatings = [] // used to demonstrate POST functionality
 var unavailable = false
 var healthy = true
 
-if (process.env.SERVICE_VERSION === 'v-unavailable') {
+if (process.env.APP_VERSION === 'v-unavailable') {
     // make the service unavailable once in 60 seconds
     setInterval(function () {
         unavailable = !unavailable
     }, 60000);
 }
 
-if (process.env.SERVICE_VERSION === 'v-unhealthy') {
+if (process.env.APP_VERSION === 'v-unhealthy') {
     // make the service unavailable once in 15 minutes for 15 minutes.
     // 15 minutes is chosen since the Kubernetes's exponential back-off is reset after 10 minutes
     // of successful execution
@@ -45,7 +45,7 @@ if (process.env.SERVICE_VERSION === 'v-unhealthy') {
 /**
  * We default to using mongodb, if DB_TYPE is not set to mysql.
  */
-if (process.env.SERVICE_VERSION === 'v2') {
+if (process.env.APP_VERSION === 'v2') {
   if (process.env.DB_TYPE === 'mysql') {
     var mysql = require('mysql')
     var hostName = process.env.MYSQL_DB_HOST
@@ -77,7 +77,7 @@ dispatcher.onPost(/^\/ratings\/[0-9]*/, function (req, res) {
     return
   }
 
-  if (process.env.SERVICE_VERSION === 'v2') { // the version that is backed by a database
+  if (process.env.APP_VERSION === 'v2') { // the version that is backed by a database
     res.writeHead(501, {'Content-type': 'application/json'})
     res.end(JSON.stringify({error: 'Post not implemented for database backed ratings'}))
   } else { // the version that holds ratings in-memory
@@ -175,7 +175,7 @@ dispatcher.onGet(/^\/ratings\/[0-9]*/, function (req, res) {
       })
     }
   } else {
-      if (process.env.SERVICE_VERSION === 'v-faulty') {
+      if (process.env.APP_VERSION === 'v-faulty') {
         // in half of the cases return error,
         // in another half proceed as usual
         var random = Math.random(); // returns [0,1]
@@ -185,7 +185,7 @@ dispatcher.onGet(/^\/ratings\/[0-9]*/, function (req, res) {
           getLocalReviewsSuccessful(res, productId)
         }
       }
-      else if (process.env.SERVICE_VERSION === 'v-delayed') {
+      else if (process.env.APP_VERSION === 'v-delayed') {
         // in half of the cases delay for 7 seconds,
         // in another half proceed as usual
         var random = Math.random(); // returns [0,1]
@@ -195,7 +195,7 @@ dispatcher.onGet(/^\/ratings\/[0-9]*/, function (req, res) {
           getLocalReviewsSuccessful(res, productId)
         }
       }
-      else if (process.env.SERVICE_VERSION === 'v-unavailable' || process.env.SERVICE_VERSION === 'v-unhealthy') {
+      else if (process.env.APP_VERSION === 'v-unavailable' || process.env.APP_VERSION === 'v-unhealthy') {
           if (unavailable) {
               getLocalReviewsServiceUnavailable(res)
           } else {
