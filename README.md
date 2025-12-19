@@ -104,7 +104,7 @@ Se pide:
 
 Consideraciones especiales para la definición de los ficheros `Dockerfile` de cada uno de los microservicios:
 
-- **ProductPage:** para este contenedor se debe usar la imagen base de python3, instalar las librerías definidas en el fichero requirements.txt y ejecutar el archivo productpage.py.
+- **ProductPage:** para este contenedor se debe usar la imagen base de python3.9-slim, instalar las librerías definidas en el fichero requirements.txt y ejecutar el archivo productpage.py.
 
 - **Details**: 
   - Imagen base a utilizar `ruby:2.7.1-slim`
@@ -142,7 +142,7 @@ Llegados a este punto y con todas las imágenes de docker creadas, es hora de re
 
 Para esta parte de la práctica será necesario:
 
-- Crear un cluster de Kubernetes en GKE con **3** nodos sin **autoescalado**
+- Crear un cluster de Kubernetes en GKE con **3** nodos sin **autoescalado** o Minikube
 - Crear un namespace con el nombre `cdps-<TEAM_ID>` en donde se deben desplegar cada uno de los microservicios de la aplicación.
 - Definir archivos de despliegue individuales para cada uno de los microservicios de la aplicación. Es decir, cada microservicio se debe ejecutar en **un pod** y cada pod debe tener únicamente **un contenedor** asociado.
 - Definir como **factor de replicación 4** para el microservicio de **Details** y **factor de replicación 3** para el microservicio de **Ratings**.
@@ -163,6 +163,7 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
 
 
 
