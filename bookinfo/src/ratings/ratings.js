@@ -93,7 +93,7 @@ dispatcher.onGet(/^\/ratings\/[0-9]*/, function (req, res) {
   if (Number.isNaN(productId)) {
     res.writeHead(400, {'Content-type': 'application/json'})
     res.end(JSON.stringify({error: 'please provide numeric product ID'}))
-  } else if (process.env.SERVICE_VERSION === 'v2') {
+  } else if (process.env.APP_VERSION === 'v2') {
     var firstRating = 0
     var secondRating = 0
 
