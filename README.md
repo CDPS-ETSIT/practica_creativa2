@@ -31,7 +31,7 @@ En esta práctica, el alumno evaluará diferentes tecnologías para desplegar la
 
 En esta parte, se utilizarán las técnicas más tradicionales, que consisten en desplegar la aplicación como si fuese un monolito, en una o varias máquinas virtuales pesadas. 
 
-Para ello deberá programar un script en lenguaje Python que sea capaz de realizar una de las siguientes instalaciones: 
+Para ello deberá programar un script en lenguaje Python (**obligatorio usar la versión de python 3.9**)que sea capaz de realizar una de las siguientes instalaciones: 
 
 - Instalación de la aplicación en una máquina virtual pesada alojada en la infraestructura de google cloud (no tiene que automatizarse la creación de la máquina virtual).
 - Instalación de la aplicación en los servidores s1 a s3 de la práctica creativa 1 (alternativamente usar una máquina virtual fuera del escenario como las de las primeras prácticas). 
@@ -160,6 +160,7 @@ Incluya en la memoria de la práctica las diferencias que encuentra al crear los
 Los alumnos deberán entregar un fichero comprimido **(zip)** en el que se incluyan los scripts y ficheros de configuración utilizados, así como un documento breve en el que se describan las principales decisiones de diseño e implementación tomadas, la forma de instalar y configurar los servicios, así como las partes opcionales implementadas. Adicionalmente, se incluirá también una breve discusión sobre los puntos débiles de la arquitectura en cuanto a fiabilidad y escalabilidad, mencionando alguna solución a los problemas detectados.
 
 En el examen oral de la práctica (cuyas fechas y turnos se publicarán en el moodle de la asignatura) se evaluará el correcto funcionamiento del servicio, la calidad de la solución adoptada en relación con los requisitos definidos en este documento y el conocimiento de los alumnos de las técnicas y herramientas usadas en el desarrollo de este trabajo. 
+
 
 
 
